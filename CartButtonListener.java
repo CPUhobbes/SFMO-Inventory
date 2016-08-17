@@ -38,7 +38,6 @@ public class CartButtonListener implements ActionListener
         try {
             int cartNum = Integer.parseInt(numItem.getText());
             refreshHeader(cartNum);
-            dataManager.updateComputerCart(item, cartNum);
             dataManager.addItem(item, cartNum);
         } catch (Exception d) {
             JOptionPane.showMessageDialog(null, "Please use a number when adding to the cart");

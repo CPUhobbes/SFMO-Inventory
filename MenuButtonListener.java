@@ -38,14 +38,8 @@ public class MenuButtonListener implements ActionListener
             if(command.equals("[ Computers/Electronics ]") || command.equals("<html>Computers and<br />&nbsp;&nbsp;&nbsp;&nbsp;Electronics</html>"))
                 new CartBody(panelManager, dataManager, "compElec");
             
-            //get action from cart click, used getName since ActionCommand will change values     
-            /*
-             * TEMP PANEL JUST FOR TESTING 
-             */   
-            /*else if(name.equals("cart")){
-               new ComputerBody(panelManager, dataManager, "Cart");
-            }*/
-            
+            //get action from cart click, used getName since ActionCommand will change values      
+                 
             else if(command.equals("[ Personnel Equipment ]") || command.equals("<html>&nbsp;&nbsp;Personnel<br />Equipment</html>"))
                 new CartBody(panelManager, dataManager, "personnel"); 
             else if(command.equals("[ Vehicle Equipment ]") || command.equals("<html>&nbsp;&nbsp;Vehicle<br />Equipment</html>"))
@@ -54,11 +48,20 @@ public class MenuButtonListener implements ActionListener
                 new CartBody(panelManager, dataManager, "lab");
             else if(command.equals("[ Tools ]") || command.equals("<html>Tools</html>"))
                 new CartBody(panelManager, dataManager, "tools");  
+            
+            //used button get source for cart
+            else if(name!=null){
+                 if(name.equals("cart")){
+                    new CartBody(panelManager, dataManager, "default");
+                }
+            }      
+            else
+                new CartBody(panelManager, dataManager, "default");
+                
             /*           
             else if(command.equals("Administrator"))
                 new AdminBody(panelManager, dataManager);
-            else
-                new DefaultBody();   
+               
             
             if(command.equals("Checkout") || command.equals("<html>Checkout</html>"))
                 new ComputerBody(panelManager, dataManager);*/

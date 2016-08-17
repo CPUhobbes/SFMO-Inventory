@@ -25,7 +25,7 @@ public class BodyPanel
     
     public JPanel getPanel()
     {      
-       return this.body;
+        return this.body;
     }
     
     public void defaultBody(JPanel body, PanelManager panelManager, DataManager dataManager){

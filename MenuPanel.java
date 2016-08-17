@@ -18,7 +18,7 @@ public class MenuPanel
        menu.setBackground(new Color(0,0, 150));
        menu.setBounds(0, 100, 800, 50 );
         
-        JButton computer = createMenuButton("[ Computers/Electronics ]", false);
+       JButton computer = createMenuButton("[ Computers/Electronics ]", false);
        computer.addActionListener(new MenuButtonListener(pm, dm));
        menu.add(computer);
         

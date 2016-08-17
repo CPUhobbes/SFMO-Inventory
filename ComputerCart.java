@@ -33,10 +33,4 @@ public class ComputerCart
         return keyString;
         
     }
-    public void updateCart(String item, int itemsAdded){
-        cartItems.put(item,itemsAdded);
-        for (String key : cartItems.keySet()) {
-            System.out.println(key + " " + cartItems.get(key));
-        }
-    }
 }

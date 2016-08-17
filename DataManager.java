@@ -14,6 +14,7 @@ public class DataManager
     private VehicleCart vehicleCart;
     private LabCart labCart;
     private ToolsCart toolsCart;
+    private DefaultCart defaultCart;
     private HashMap<String, Integer> cartItems;
 
     /**
@@ -28,6 +29,7 @@ public class DataManager
        vehicleCart = new VehicleCart();
        labCart = new LabCart();
        toolsCart = new ToolsCart();
+       defaultCart= new DefaultCart();
        
        
     }
@@ -41,14 +43,15 @@ public class DataManager
         cartNum+=items;
     }
     
-    public void updateComputerCart(String item, int itemsAdded){
-        computerCart.updateCart(item, itemsAdded);
-    }
+    
     public void addItem(String item, int itemsAdded){
         if(cartItems.containsKey(item)){
             item = item+cartItems.get(item);
         }
         cartItems.put(item, itemsAdded);
+            for (String key : cartItems.keySet()) {
+            System.out.println(key + " " + cartItems.get(key));
+        }
     }
     public String[] getCartItems(String cartName){
         String[] cartString = {};
@@ -62,6 +65,9 @@ public class DataManager
             cartString = labCart.labCartListString();
         if(cartName.equals("tools"))
             cartString = toolsCart.toolsCartListString();
+        if(cartName.equals("default"))
+            cartString = defaultCart.defaultCartListString();
+            
         
             return cartString;
     }
