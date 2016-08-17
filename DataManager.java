@@ -11,6 +11,9 @@ public class DataManager
     private int cartNum;
     private ComputerCart computerCart;
     private PersonnelCart personnelCart;
+    private VehicleCart vehicleCart;
+    private LabCart labCart;
+    private ToolsCart toolsCart;
     private HashMap<String, Integer> cartItems;
 
     /**
@@ -22,6 +25,10 @@ public class DataManager
        //Initialze each type of cart
        computerCart = new ComputerCart();
        personnelCart = new PersonnelCart();
+       vehicleCart = new VehicleCart();
+       labCart = new LabCart();
+       toolsCart = new ToolsCart();
+       
        
     }
 
@@ -49,6 +56,12 @@ public class DataManager
             cartString = computerCart.computerCartListString();
         if(cartName.equals("personnel"))
             cartString = personnelCart.personnelCartListString();
+        if(cartName.equals("vehicle"))
+            cartString = vehicleCart.vehicleCartListString();
+        if(cartName.equals("lab"))
+            cartString = labCart.labCartListString();
+        if(cartName.equals("tools"))
+            cartString = toolsCart.toolsCartListString();
         
             return cartString;
     }

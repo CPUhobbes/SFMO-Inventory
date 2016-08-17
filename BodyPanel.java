@@ -54,21 +54,24 @@ public class BodyPanel
         buttonBox.add(personButton);
         
         //tool button
-        JButton toolButton = new JButton("Tools");
+        JButton toolButton = new JButton("<html>Tools</html>");
         toolButton.setPreferredSize(new Dimension(200, 80));
         toolButton.setFont(computerButton.getFont().deriveFont(18.0f));
+        toolButton.addActionListener(new MenuButtonListener(panelManager, dataManager));
         buttonBox.add(toolButton);
 
         //lab supplies button
-        JButton labButton = new JButton("<html>Arson Lab <br />&nbsp;Supplies</html>");
+        JButton labButton = new JButton("<html>Arson&nbsp;Lab<br />&nbsp;Supplies</html>");
         labButton.setPreferredSize(new Dimension(200, 80));
         labButton.setFont(computerButton.getFont().deriveFont(18.0f));
+        labButton.addActionListener(new MenuButtonListener(panelManager, dataManager));
         buttonBox.add(labButton);
         
         //vehicle equip button
-        JButton vehicleButton = new JButton("Vehicle Equipment");
+        JButton vehicleButton = new JButton("<html>&nbsp;&nbsp;Vehicle<br />Equipment</html>");
         vehicleButton.setPreferredSize(new Dimension(200, 80));
         vehicleButton.setFont(computerButton.getFont().deriveFont(18.0f));
+        vehicleButton.addActionListener(new MenuButtonListener(panelManager, dataManager));
         buttonBox.add(vehicleButton);
         
         //Admin button

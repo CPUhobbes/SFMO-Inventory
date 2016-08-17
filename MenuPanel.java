@@ -23,7 +23,7 @@ public class MenuPanel
        menu.add(computer);
         
        JButton supplies = createMenuButton("[ Lab Supplies ]", false) ;
-       //supplies.addActionListener(new ButtonListener(body, header,data));
+       supplies.addActionListener(new MenuButtonListener(pm, dm));
        menu.add(supplies);
        
        JButton equip = createMenuButton("[ Personnel Equipment ]", false);
@@ -31,11 +31,11 @@ public class MenuPanel
        menu.add(equip);
        
        JButton tools = createMenuButton("[ Tools ]", false);
-      // tools.addActionListener(new ButtonListener(body, header,data));
+       tools.addActionListener(new MenuButtonListener(pm, dm));
        menu.add(tools);
        
        JButton vehicle = createMenuButton("[ Vehicle Equipment ]", false);
-       //vehicle.addActionListener(new ButtonListener(body,header,data));
+       vehicle.addActionListener(new MenuButtonListener(pm, dm));
        menu.add(vehicle);
        
        JPanel search = new JPanel();

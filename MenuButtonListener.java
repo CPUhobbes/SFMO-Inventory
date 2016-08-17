@@ -36,7 +36,7 @@ public class MenuButtonListener implements ActionListener
             String name = o.getName();
             
             if(command.equals("[ Computers/Electronics ]") || command.equals("<html>Computers and<br />&nbsp;&nbsp;&nbsp;&nbsp;Electronics</html>"))
-                new ComputerBody(panelManager, dataManager, "compElec");
+                new CartBody(panelManager, dataManager, "compElec");
             
             //get action from cart click, used getName since ActionCommand will change values     
             /*
@@ -47,13 +47,14 @@ public class MenuButtonListener implements ActionListener
             }*/
             
             else if(command.equals("[ Personnel Equipment ]") || command.equals("<html>&nbsp;&nbsp;Personnel<br />Equipment</html>"))
-                new ComputerBody(panelManager, dataManager, "personnel"); 
-            /*else if(command.equals("[ Tools ]") || command.equals("Tools"))
-                new ToolsBody(panelManager, dataManager);
-            else if(command.equals("[ Lab Supplies ]") || command.equals("<html>Arson Lab <br />&nbsp;Supplies</html>"))
-                new LabBody(panelManager, dataManager);
-            else if(command.equals("[ Vehicle Equipment ]") || command.equals("Vehicle Equipment"))
-                new VehicleBody(panelManager, dataManager);
+                new CartBody(panelManager, dataManager, "personnel"); 
+            else if(command.equals("[ Vehicle Equipment ]") || command.equals("<html>&nbsp;&nbsp;Vehicle<br />Equipment</html>"))
+                new CartBody(panelManager, dataManager, "vehicle");
+            else if(command.equals("[ Lab Supplies ]") || command.equals("<html>Arson&nbsp;Lab<br />&nbsp;Supplies</html>"))
+                new CartBody(panelManager, dataManager, "lab");
+            else if(command.equals("[ Tools ]") || command.equals("<html>Tools</html>"))
+                new CartBody(panelManager, dataManager, "tools");  
+            /*           
             else if(command.equals("Administrator"))
                 new AdminBody(panelManager, dataManager);
             else

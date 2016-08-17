@@ -33,7 +33,7 @@ public class CartBody
     private GridBagConstraints menuContainerConstraints;
     private GridBagConstraints itemContainerConstraints;
 
-    public CartBody(PanelManager panelManager, DataManager dataManager){
+    public CartBody(PanelManager panelManager, DataManager dataManager, String menuType){
 
         GridBagConstraints c = new GridBagConstraints();
         
@@ -46,7 +46,7 @@ public class CartBody
         //Create header for body panel
         JPanel titlePanel = new JPanel();
         c.anchor = GridBagConstraints.NORTHWEST;
-        JLabel textLabel = new JLabel("Cart Body");
+        JLabel textLabel = new JLabel("Computers and Electronics");
         textLabel.setFont(textLabel.getFont().deriveFont(24.0f));
         textLabel.setForeground(new Color(0,0, 150));
         textLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -63,7 +63,7 @@ public class CartBody
         
         
         //Get entire list of possible items for cart
-        String[] computerList = dataManager.getComputerCartItems();
+        String[] computerList = dataManager.getCartItems(menuType);
         Arrays.sort(computerList);
         
         //Initialize starting positions for pages based on number of items
