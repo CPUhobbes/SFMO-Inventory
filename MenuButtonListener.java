@@ -17,8 +17,6 @@ public class MenuButtonListener implements ActionListener
      * Constructor for objects of class ButtonListener
      */
     public MenuButtonListener(PanelManager panelManager, DataManager dataManager){
-        //body = pm.getBodyPanel();
-        //header = pm.getHeaderPanel();
         this.dataManager = dataManager;
         this.panelManager = panelManager;
 
@@ -49,10 +47,12 @@ public class MenuButtonListener implements ActionListener
             else if(command.equals("[ Tools ]") || command.equals("<html>Tools</html>"))
                 new CartBody(panelManager, dataManager, "tools");  
             
-            //used button get source for cart
+            //used button getSource for cart button
             else if(name!=null){
                  if(name.equals("cart")){
+                     System.out.println("Hit");
                     new CartBody(panelManager, dataManager, "default");
+                    
                 }
             }      
             else

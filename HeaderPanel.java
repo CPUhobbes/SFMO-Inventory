@@ -97,10 +97,10 @@ public class HeaderPanel
         }  catch (IOException ex) {
             }
     }
-    public void refreshHeader(){
+    public void refreshHeader(DataManager dm, PanelManager pm){
         header.removeAll();
         header.revalidate();
-        updateHeader(header,dataManager, panelManager); 
+        updateHeader(header,dm, pm); 
         header.repaint();
     }
 }

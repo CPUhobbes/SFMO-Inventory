@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 /**
  * Write a description of class PanelManager here.
  * 
@@ -39,7 +40,7 @@ public class PanelManager
         headerPanel.updateHeader(headerPanel.getPanel(), dataManager, this);
     }
     public void refreshHeaderPanel(){
-         headerPanel.refreshHeader();
+        headerPanel.refreshHeader(dataManager, this);
     }
 
 }

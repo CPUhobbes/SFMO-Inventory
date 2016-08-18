@@ -47,9 +47,19 @@ public class CartButtonListener implements ActionListener
     
     private void refreshHeader(int cartNum){
         
+        
+/* FIX THIS Repainting over cart number*/        
+        
            // System.out.println(item+" --- "+cartNum);
             dataManager.changeCartNum(cartNum);
             panelManager.updateHeaderPanel();
             panelManager.refreshHeaderPanel();
+            
+           /* panelManager.getHeaderPanel();
+            //panelManager.refreshHeaderPanel();
+            panelManager.getHeaderPanel().revalidate();
+             System.out.println(panelManager);
+            panelManager.getHeaderPanel().repaint();*/
+            
         }
 }
