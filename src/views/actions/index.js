@@ -1,8 +1,9 @@
-export function increase(n){
+export function addToCart(item, quantity){
     
     return {
-        type: 'INCREASE',
-        amount: n
+        type: 'ADD',
+        item: item,
+        quantity: quantity
 
     }
 

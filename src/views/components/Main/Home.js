@@ -5,12 +5,12 @@ import inventoryList from '../../../../server/api/inventory';
 //import PeopleContainer from './People/PeopleContainer';
 //import {Provider} from 'react-redux';
 //import configureStore from '../store/configure-store';
-import {increase} from '../../actions/'
+import {addToCart} from '../../actions/'
 
 
 
-function Home({number, increase}){
-		console.log(number)
+function Home({cart, increase}){
+		console.log(cart)
 
 		return (
 
@@ -48,7 +48,7 @@ function Home({number, increase}){
 
 
 export default connect(
-	state => ({number:state.count.number}),
-	{increase}
+	state => ({cart:state}),
+	{addToCart}
 
 )(Home);
