@@ -3,6 +3,7 @@ import {Row, Col, Image, Form, FormControl, FormGroup, InputGroup, Button, Glyph
 import {IndexLinkContainer} from 'react-router-bootstrap';
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
+import * as actions from '../actions/';
 
 class Index extends Component {
 
@@ -19,8 +20,12 @@ class Index extends Component {
 
 	render() {
 
-		const {cart} = this.props;
-		let numItems = cart.Shopping_Cart.cart.length;
+		const {cart, search, updateSearch} = this.props;
+		console.log(cart, search);
+		let numItems = 0;
+		//let numItems = cart.Shopping_Cart.cart.length;
+		//updateSearch("cool");
+
 		
 		return(
 		  	<div>
@@ -42,7 +47,7 @@ class Index extends Component {
 							      				
 							      			/>
 							      			<InputGroup.Button>
-							      				<Button><Glyphicon glyph="search" /></Button>
+							      				<Button onClick={()=> updateSearch("test")}><Glyphicon glyph="search" /></Button>
 							      			</InputGroup.Button>
 							      		</InputGroup>
 					      			</FormGroup>
@@ -119,10 +124,17 @@ class Index extends Component {
 
 const mapStateToProps = (state) =>{
 	return{
-		cart:state
+		cart:state.Shopping_Cart,
+		search:state.Search
 	}
 }
 
+const mapDispatchToProps = (dispatch) => ({
+	updateSearch(value){
+		dispatch(actions.updateSearch(value))
+	},
+});
 
-export default connect(mapStateToProps)(Index);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Index);
 

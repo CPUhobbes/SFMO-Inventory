@@ -1,4 +1,4 @@
-import {ADD_ITEM, REMOVE_ITEM} from '../constants';
+import {ADD_ITEM, REMOVE_ITEM, UPDATE_SEARCH} from '../constants';
 
 export function addToCart(item, quantity){
     
@@ -14,6 +14,13 @@ export function removeFromCart(item, quantity){
         type: REMOVE_ITEM,
         item: item,
         quantity: quantity
+    }
+}
+
+export function updateSearch(value){
+    return{
+        type: UPDATE_SEARCH,
+        value: value
     }
 }
 

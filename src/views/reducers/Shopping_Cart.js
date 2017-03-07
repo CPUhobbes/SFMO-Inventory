@@ -20,8 +20,7 @@ function findItem(item, arr){
 
 
 const initialState = {
-    cart:[],
-    test:"" 
+    cart:[]
 }
 
 
