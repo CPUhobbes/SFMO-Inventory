@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 import {Row, Col, Image, Form, FormControl, FormGroup, InputGroup, Button, Glyphicon, Nav, Navbar, NavItem, Badge} from 'react-bootstrap';
 import {IndexLinkContainer} from 'react-router-bootstrap';
 import {Link} from 'react-router';
-
+import {connect} from 'react-redux';
 
 class Index extends Component {
 
@@ -18,6 +18,10 @@ class Index extends Component {
 
 
 	render() {
+
+		const {cart} = this.props;
+		let numItems = cart.Shopping_Cart.cart.length;
+		
 		return(
 		  	<div>
 				
@@ -55,13 +59,13 @@ class Index extends Component {
 				    			</Navbar.Brand>
 				    			<Navbar.Toggle />
 				    			<Navbar.Text pullRight>
-				    						<a href="#" className="hidden_lg"><Badge><Glyphicon glyph="shopping-cart" /> {this.state.itemCount}</Badge></a>
+				    						<a href="#" className="hidden_lg"><Badge><Glyphicon glyph="shopping-cart" /> {numItems}</Badge></a>
 				    			</Navbar.Text>
 				    		</Navbar.Header>
 				    		
 				    		<Navbar.Collapse>
 				    			<Navbar.Text pullRight>
-				    						<a href="#" className="hidden_sm"><Badge><Glyphicon glyph="shopping-cart" /> {this.state.itemCount}</Badge></a>
+				    						<a href="#" className="hidden_sm"><Badge><Glyphicon glyph="shopping-cart" /> {numItems}</Badge></a>
 				    			</Navbar.Text>
 				    			<Navbar.Text pullRight> 
 				    						<Link to="/Login"> Log In</Link>
@@ -112,4 +116,13 @@ class Index extends Component {
   	}
 }
 
-export default Index;
+
+const mapStateToProps = (state) =>{
+	return{
+		cart:state
+	}
+}
+
+
+export default connect(mapStateToProps)(Index);
+

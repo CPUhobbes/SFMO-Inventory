@@ -5,15 +5,17 @@ import inventoryList from '../../../../server/api/inventory';
 //import PeopleContainer from './People/PeopleContainer';
 //import {Provider} from 'react-redux';
 //import configureStore from '../store/configure-store';
-import {addToCart} from '../../actions/'
+//import {addToCart, removeFromCart} from '../../actions/'
+import * as actions from '../../actions/';
 
 
+class Home extends Component{
 
-function Home({cart, increase}){
-		console.log(cart)
+	render(){
+		const {addToCart, removeFromCart} = this.props;
 
 		return (
-
+			
 			<div>
 				<Form horizontal>
 
@@ -38,17 +40,36 @@ function Home({cart, increase}){
 
 					<FormGroup>
 						<Col sm={12}>
-							<Button onClick={()=> increase(1)}>Add To Cart </Button>
+							<Button onClick={()=> addToCart("test", 1)}>Add  </Button>
+							<Button onClick={()=> removeFromCart("test", 5)}>Remove</Button>
+							<Button onClick={()=> addToCart("tester", 7)}>Add to Cart</Button>
+							
 						</Col>
 					</FormGroup>
 				</Form>
       		</div>
 		);
 	}
+}
+const mapStateToProps = (state) =>{
+	return{
+		cart:state
+	}
+}
+
+const mapDispatchToProps = (dispatch) => ({
+	addToCart(item, quantity){
+		dispatch(actions.addToCart(item, quantity))
+	},
+	removeFromCart(item, quantity){
+		dispatch(actions.removeFromCart(item, quantity))
+	},
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
 
 
-export default connect(
-	state => ({cart:state}),
-	{addToCart}
-
-)(Home);
+// export default connect(
+// 	state => (
+// 		mapStateToProps),
+// 	{addToCart, removeFromCart})(Home);
