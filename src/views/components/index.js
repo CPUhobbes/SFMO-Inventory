@@ -7,26 +7,25 @@ import * as actions from '../actions/';
 
 class Index extends Component {
 
-	constructor(props){
-		super(props);
-		this.state={
+	// constructor(props){
+	// 	super(props);
+	// 	this.state={
 
-			search:"",
-			itemCount:0
-		}
+	// 		search:"",
+	// 		itemCount:0
+	// 	}
 
-	}
+	// }
 
 
 	render() {
 
-		const {cart, search, updateSearch} = this.props;
-		console.log(cart, search);
-		let numItems = 0;
-		//let numItems = cart.Shopping_Cart.cart.length;
+		const {shoppingCart, search, updateSearch} = this.props;
+		console.log(shoppingCart, search);
+		//let numItems = 0;
+		let numItems = shoppingCart.cart.length;
 		//updateSearch("cool");
 
-		
 		return(
 		  	<div>
 				
@@ -99,18 +98,7 @@ class Index extends Component {
 					    		
 					    	</Navbar.Collapse>
 
-
-					    		
-					    			
-					    		
-					    	
 					    </Navbar>
-
-
-				    
-
-				
-				
 
 				{/*Render component children, important!!*/}
 				{this.props.children}
@@ -121,10 +109,10 @@ class Index extends Component {
   	}
 }
 
-
+//Redux
 const mapStateToProps = (state) =>{
 	return{
-		cart:state.Shopping_Cart,
+		shoppingCart:state.Shopping_Cart,
 		search:state.Search
 	}
 }

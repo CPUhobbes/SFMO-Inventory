@@ -2,14 +2,31 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { Row, Col, Image, Form, FormControl, FormGroup, InputGroup, Button, Glyphicon, ControlLabel} from 'react-bootstrap';
 import inventoryList from '../../../../server/api/inventory';
-//import PeopleContainer from './People/PeopleContainer';
-//import {Provider} from 'react-redux';
-//import configureStore from '../store/configure-store';
 //import {addToCart, removeFromCart} from '../../actions/'
 import * as actions from '../../actions/';
 
 
 class Home extends Component{
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			formData:[]
+			
+		};
+
+		//Bind functions here
+		this.handleFormSubmit= this.handleFormSubmit.bind(this);
+		this.handleFormChange = this.handleFormChange.bind(this);
+  	}
+	
+	handleFormSubmit(event){
+
+	}
+	
+	handleFormChange(event){
+		console.log(event.target.id, event.target.value);
+	}
 
 	render(){
 		const {addToCart, removeFromCart} = this.props;
@@ -17,7 +34,7 @@ class Home extends Component{
 		return (
 			
 			<div>
-				<Form horizontal>
+				<Form horizontal onChange={this.handleFormChange} onSubmit={this.handleFormSubmit}>
 
 					{inventoryList.lab_supplies[0].map(function(item, index){
 						return (
@@ -28,7 +45,7 @@ class Home extends Component{
 												<Col sm={2}>
 													{item.name}
 												</Col>
-												<Col sm={10}>
+												<Col sm={2}>
 													<FormControl type="text" />
 												</Col>
 											</FormGroup>
