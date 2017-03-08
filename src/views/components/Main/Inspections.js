@@ -1,5 +1,6 @@
 //Import Packages
 import React, { Component,  } from 'react';
+import ReactDOM from "react-dom";
 import {connect} from 'react-redux';
 import { Row, Col, Form, FormGroup, Button, Tabs, Tab, Grid} from 'react-bootstrap';
 
@@ -32,10 +33,20 @@ class Home extends Component{
   	}
 	
 	handleFormSubmit(event){
+
+		event.preventDefault();
 		this.state.formData.forEach((value, index) => {
 			this.props.addToCart(value.id,value.quantity);
-
 		});
+
+		//Reset state
+		this.setState({
+			formData: []
+		});
+		//Reset form
+		ReactDOM.findDOMNode(this.refs.form).reset();
+    	
+
 		
 	}
 	
@@ -56,6 +67,7 @@ class Home extends Component{
 				formData: data
 			});
 		}
+		
 		//console.log(this.state.formData);
 		//console.log(event.target.id, event.target.value);
 	} 
@@ -106,13 +118,13 @@ class Home extends Component{
 		return (		
 			<div>
 				<h2 className="text-center">Inspections</h2>
-				<Form horizontal onChange={this.handleFormChange} onSubmit={this.handleFormSubmit}>
+				<Form ref="form" horizontal onChange={this.handleFormChange} onSubmit={this.handleFormSubmit}>
 					<Grid>
 					{this.renderItems()}
 
 					<FormGroup>
 						<Col sm={12}>
-							<div className="text-center"><Button bsStyle="primary" onClick={()=> this.handleFormSubmit()}>Add To Cart</Button></div>
+							<div className="text-center"><Button type="submit" bsStyle="primary">Add To Cart</Button></div>
 							
 						</Col> 
 					</FormGroup>
