@@ -63,13 +63,13 @@ class Index extends Component {
 				    			</Navbar.Brand>
 				    			<Navbar.Toggle />
 				    			<Navbar.Text pullRight>
-				    						<a href="#" className="hidden_lg"><Badge><Glyphicon glyph="shopping-cart" /> {numItems}</Badge></a>
+				    						<Link to="/Checkout" className="hidden_lg"><Badge>Checkout <Glyphicon glyph="shopping-cart" /> {numItems}</Badge></Link>
 				    			</Navbar.Text>
 				    		</Navbar.Header>
 				    		
 				    		<Navbar.Collapse>
 				    			<Navbar.Text pullRight>
-				    						<a href="#" className="hidden_sm"><Badge><Glyphicon glyph="shopping-cart" /> {numItems}</Badge></a>
+				    						<Link to="/Checkout" className="hidden_sm"><Badge>Checkout <Glyphicon glyph="shopping-cart" /> {numItems}</Badge></Link>
 				    			</Navbar.Text>
 				    			<Navbar.Text pullRight> 
 				    						<Link to="/Login"> Log In</Link>
@@ -78,20 +78,23 @@ class Index extends Component {
 				    				<IndexLinkContainer to={"#"} activeHref="active">
 					    				<NavItem eventKey={1} >Home</NavItem>
 					    			</IndexLinkContainer>
-					    			<IndexLinkContainer to={"/Link2"} >
-					    				<NavItem eventKey={2} >Link 2</NavItem>
+					    			<IndexLinkContainer to={"/Inspections"} >
+					    				<NavItem eventKey={2} >Inspections</NavItem>
 					    			</IndexLinkContainer>
-					    			<IndexLinkContainer to={"/Link3"} >
-					    				<NavItem eventKey={3} >Link 3</NavItem>
+					    			<IndexLinkContainer to={"/Investigations"} >
+					    				<NavItem eventKey={3} >Investigations</NavItem>
 					    			</IndexLinkContainer>
-					    			<IndexLinkContainer to={"/Link4"} >
-					    				<NavItem eventKey={4} >Link 4</NavItem>
+					    			<IndexLinkContainer to={"/Licensing"} >
+					    				<NavItem eventKey={4} >Licensing</NavItem>
 					    			</IndexLinkContainer>
-					    			<IndexLinkContainer to={"/Link5"} >
-					    				<NavItem eventKey={5} >Link 5</NavItem>
+					    			<IndexLinkContainer to={"/K9"} >
+					    				<NavItem eventKey={5} >K9</NavItem>
 					    			</IndexLinkContainer>
-					    			<IndexLinkContainer to={"/Link6"}>
-					    				<NavItem eventKey={6} >Link 6</NavItem>
+					    			<IndexLinkContainer to={"/Clothing"}>
+					    				<NavItem eventKey={6} >Clothing</NavItem>
+					    			</IndexLinkContainer>
+									<IndexLinkContainer to={"/Miscellaneous"}>
+					    				<NavItem eventKey={7} >Misc</NavItem>
 					    			</IndexLinkContainer>
 					    			
 					    		</Nav>

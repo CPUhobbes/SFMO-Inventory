@@ -1,10 +1,14 @@
+//Import Packages
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import { Row, Col, Image, Form, FormControl, FormGroup, InputGroup, Button, Glyphicon, ControlLabel} from 'react-bootstrap';
-import inventoryList from '../../../../server/api/inventory';
-//import {addToCart, removeFromCart} from '../../actions/'
-import * as actions from '../../actions/';
+import { Row, Col, Button, Grid} from 'react-bootstrap';
+import {Link} from 'react-router';
 
+//Actions
+//import * as actions from '../../actions/';
+
+//TESTING
+//import {addToCart, removeFromCart} from '../../actions/'
 
 class Home extends Component{
 	constructor(props) {
@@ -29,41 +33,41 @@ class Home extends Component{
 	}
 
 	render(){
-		const {addToCart, removeFromCart} = this.props;
+		//const {} = this.props;
 
 		return (
 			
 			<div>
-				<Form horizontal onChange={this.handleFormChange} onSubmit={this.handleFormSubmit}>
-
-					{inventoryList.lab_supplies[0].map(function(item, index){
-						return (
-							<div key={index}>
-									<Row>
-										<Col sm={12}>
-											<FormGroup controlId={"control_"+item.nickname}>
-												<Col sm={2}>
-													{item.name}
-												</Col>
-												<Col sm={2}>
-													<FormControl type="text" />
-												</Col>
-											</FormGroup>
-										</Col>
-									</Row>
-							</div>
-						);
-					})}
-
-					<FormGroup>
+				<Grid>
+					<Row>
 						<Col sm={12}>
-							<Button onClick={()=> addToCart("test", 1)}>Add  </Button>
-							<Button onClick={()=> removeFromCart("test", 5)}>Remove</Button>
-							<Button onClick={()=> addToCart("tester", 7)}>Add to Cart</Button>
-							
+							<h2 className="text-center">Main Menu </h2>
 						</Col>
-					</FormGroup>
-				</Form>
+					</Row>
+					<Row>
+						<Col sm={3} smOffset={1}>
+							<Link to="/Inspections"><Button bsSize='large' bsStyle='primary'>Inspections</Button></Link>
+						</Col>
+						<Col sm={3}>
+							<Link to="/Investigations"><Button bsSize='large' bsStyle='primary'>Investigations</Button></Link>
+						</Col>
+						<Col sm={3}>
+							<Link to="/Licensing"><Button bsSize='large' bsStyle='primary'>Licensing</Button></Link>
+						</Col>
+					</Row>
+					<Row>
+						<Col sm={3} smOffset={1}>
+							<Link to="/K9"><Button bsSize='large' bsStyle='primary'>K9 Investigations</Button></Link>
+						</Col>
+						<Col sm={3}>
+							<Link to="/Clothing"><Button bsSize='large' bsStyle='primary'>Clothing</Button></Link>
+						</Col>
+						<Col sm={3}>
+							<Link to="/Miscellaneous"><Button bsSize='large' bsStyle='primary'>Miscellaneous</Button></Link>
+						</Col>
+					</Row>
+				</Grid>
+
       		</div>
 		);
 	}
@@ -75,17 +79,12 @@ const mapStateToProps = (state) =>{
 }
 
 const mapDispatchToProps = (dispatch) => ({
-	addToCart(item, quantity){
-		dispatch(actions.addToCart(item, quantity))
-	},
-	removeFromCart(item, quantity){
-		dispatch(actions.removeFromCart(item, quantity))
-	},
+	
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
 
-
+//TESTING
 // export default connect(
 // 	state => (
 // 		mapStateToProps),
