@@ -6,6 +6,7 @@ import {Router, Route, IndexRoute} from 'react-router';
 import Index from '../components/index';
 import Home from '../components/Main/Home';
 import Inspections from '../components/Main/Inspections';
+import Checkout from '../components/Main/Checkout';
 import NotFound from '../components/Error/NotFound';
 
 
@@ -14,6 +15,7 @@ const Routes = (props) => (
 		<Route path="/" component={Index}>
 			<IndexRoute component={Home} />
 			<Route path="/Inspections" component={Inspections} />
+			<Route path="/Checkout" component={Checkout} />
 		</Route>
 		<Route path="/Login" component={NotFound} />
 		<Route path="*" component={NotFound} />

@@ -9,7 +9,10 @@ const express = require('express'),
 Router.get('/', Index.loadIndex);
 
 //API Routes
+Router.get('/api/', (req,res) => {
 
+	res.json({itWorks:"cool"});
 
+})
 
 module.exports = Router;

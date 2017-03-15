@@ -6,10 +6,10 @@ const initialState = {
 }
 
 //Helper Functions
-function findItem(item, arr){
+function findItem(id, arr){
     let location = -1;
     arr.forEach(function(value, index){
-        if(item===value.item){
+        if(id===value.id){
             location = index; 
         }
     });
@@ -19,14 +19,14 @@ function findItem(item, arr){
 //Cart
 const cart = (state=initialState, action) => {
 
-    let location = findItem(action.item, state.cart);
+    let location = findItem(action.id, state.cart);
 
     switch (action.type){
         case ADD_ITEM:
         
             //Item does not exist, add item
             if(location<0){
-                return { cart : [...state.cart, {item:action.item, quantity:action.quantity}]}
+                return { cart : [...state.cart, {id:action.id, name:action.name, quantity:action.quantity}]}
             }
 
             //Update quantity of item
@@ -36,7 +36,8 @@ const cart = (state=initialState, action) => {
                        return item;
                     }
                     return{
-                        item:item.item,
+                        id:item.id,
+                        name:item.name,
                         quantity:(item.quantity+action.quantity)
 
                     }

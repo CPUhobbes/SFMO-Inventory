@@ -10,7 +10,7 @@ class Item extends Component{
                     {item.name}
                 </Col>
                 <Col sm={2}>
-                    <FormControl type="number" />
+                    <FormControl type="number" name={item.name} />
                 </Col>
             </FormGroup>
         );

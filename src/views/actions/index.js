@@ -1,18 +1,19 @@
 import {ADD_ITEM, REMOVE_ITEM, UPDATE_SEARCH} from '../constants';
 
-export function addToCart(item, quantity){
-    
+export function addToCart(id, name, quantity){
     return {
         type: ADD_ITEM,
-        item: item,
+        id:id,
+        name: name,
         quantity: quantity
     }
 }
 
-export function removeFromCart(item, quantity){
+export function removeFromCart(id, name, quantity){
     return{
         type: REMOVE_ITEM,
-        item: item,
+        id: id,
+        name: name,
         quantity: quantity
     }
 }

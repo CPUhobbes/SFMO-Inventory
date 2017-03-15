@@ -11,7 +11,7 @@ import Inventory from '../../../controllers/inventoryController';
 import * as actions from '../../actions/';
 
 //Children Components
-import InventoryItem from './ItemChild/item';
+import InventoryItem from './ItemChild/InventoryItem';
 
 //Helper functions
 import Helpers from './../Helpers/helpers';
@@ -19,7 +19,7 @@ import Helpers from './../Helpers/helpers';
 //TESTING
 //import {addToCart, removeFromCart} from '../../actions/'
 
-class Home extends Component{
+class Inspections extends Component{
 	constructor(props) {
 		super(props);
 
@@ -33,10 +33,9 @@ class Home extends Component{
   	}
 	
 	handleFormSubmit(event){
-
 		event.preventDefault();
 		this.state.formData.forEach((value, index) => {
-			this.props.addToCart(value.id,value.quantity);
+			this.props.addToCart(value.id, value.name, value.quantity);
 		});
 
 		//Reset state
@@ -51,7 +50,7 @@ class Home extends Component{
 	}
 	
 	handleFormChange(event){
-		let updateItem = {id: event.target.id, quantity: parseInt(event.target.value)}; 
+		let updateItem = {id: event.target.id, name: event.target.name, quantity: parseInt(event.target.value, 10)}; 
 		let data = this.state.formData;
 		let position = Helpers.findItemByID(event.target.id, this.state.formData);
 
@@ -136,20 +135,21 @@ class Home extends Component{
 }
 const mapStateToProps = (state) =>{
 	return{
-		cart:state
+		shoppingCart:state.Shopping_Cart,
+		search:state.Search
 	}
 }
 
 const mapDispatchToProps = (dispatch) => ({
-	addToCart(item, quantity){
-		dispatch(actions.addToCart(item, quantity))
+	addToCart(id, name, quantity){
+		dispatch(actions.addToCart(id, name, quantity))
 	},
-	removeFromCart(item, quantity){
-		dispatch(actions.removeFromCart(item, quantity))
+	removeFromCart(id, name, quantity){
+		dispatch(actions.removeFromCart(id, name, quantity))
 	},
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Inspections);
 
 //TESTING
 // export default connect(

@@ -21,7 +21,7 @@ class Index extends Component {
 	render() {
 
 		const {shoppingCart, search, updateSearch} = this.props;
-		console.log(shoppingCart, search);
+		console.log(search);
 		//let numItems = 0;
 		let numItems = shoppingCart.cart.length;
 		//updateSearch("cool");
