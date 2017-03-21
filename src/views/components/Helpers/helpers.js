@@ -1,3 +1,7 @@
+import Inventory from '../../../controllers/inventoryController';
+
+
+
 const helpers = {
     findItemByID: (item, arr) => {
         let location = -1;
@@ -7,6 +11,11 @@ const helpers = {
             }
         });
         return location;
+    },
+
+    findItemByName:(name) => {
+        return Inventory.searchInventory(name);
+       
     }
 }
 

@@ -20,7 +20,6 @@ function findItem(id, arr){
 const cart = (state=initialState, action) => {
 
     let location = findItem(action.id, state.cart);
-
     switch (action.type){
         case ADD_ITEM:
         

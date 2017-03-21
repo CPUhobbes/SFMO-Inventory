@@ -148,6 +148,15 @@ const db = {
                 onHold:0,
                 desc:""
             },
+        ],
+        k9:[
+            {
+                id:21,
+                name:"Food",
+                quantity:0,
+                onHold:0,
+                desc:""
+            }
         ]
     }
 }

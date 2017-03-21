@@ -1,30 +1,47 @@
 import React, { Component} from 'react';
+import ReactDOM from "react-dom";
 import {Row, Col, Image, Form, FormControl, FormGroup, InputGroup, Button, Glyphicon, Nav, Navbar, NavItem, Badge} from 'react-bootstrap';
 import {IndexLinkContainer} from 'react-router-bootstrap';
-import {Link} from 'react-router';
+import {Link, hashHistory} from 'react-router';
 import {connect} from 'react-redux';
 import * as actions from '../actions/';
 
+
 class Index extends Component {
 
-	// constructor(props){
-	// 	super(props);
-	// 	this.state={
+	constructor(props){
+		super(props);
+		this.state={
+			search:"",
+		}
+		this.handleSearchSubmit= this.handleSearchSubmit.bind(this);
+		this.handleFormChange = this.handleFormChange.bind(this);
+	}
 
-	// 		search:"",
-	// 		itemCount:0
-	// 	}
+	handleSearchSubmit(event){
+		event.preventDefault();
+		ReactDOM.findDOMNode(this.refs.searchField).reset();
+		const {updateSearch} = this.props;
+		updateSearch(this.state.search);
 
-	// }
+		//Prevent push to same location
+		if(this.props.location.pathname !== '/Search'){
+			hashHistory.push('/Search');
+		}
+	}
+
+	handleFormChange(event){
+		this.setState({search:event.target.value});
+	} 
 
 
 	render() {
 
-		const {shoppingCart, search, updateSearch} = this.props;
-		console.log(search);
-		//let numItems = 0;
+		const {shoppingCart} = this.props;
 		let numItems = shoppingCart.cart.length;
-		//updateSearch("cool");
+		
+		// --- View items in Cart ---
+		console.log(shoppingCart);
 
 		return(
 		  	<div>
@@ -36,17 +53,15 @@ class Index extends Component {
 				      	<Col xs={12} md={6}> 
 				      		<div className="search_wrapper">
 					      		<div className="search_box">
-					      		<Form>
+					      		<Form ref="searchField" onChange={this.handleFormChange} onSubmit={this.handleSearchSubmit}>
 					      			<FormGroup>
 					      				<InputGroup>
-							      			<FormControl 
+							      			<FormControl id={"search"}
 							      				type="text"
-							      				value=""
 							      				placeholder="Search"
-							      				
 							      			/>
 							      			<InputGroup.Button>
-							      				<Button onClick={()=> updateSearch("test")}><Glyphicon glyph="search" /></Button>
+							      				<Button type="submit"><Glyphicon glyph="search" /></Button>
 							      			</InputGroup.Button>
 							      		</InputGroup>
 					      			</FormGroup>
